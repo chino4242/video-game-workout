@@ -40,7 +40,7 @@ def owworkout():
 def determineRocketLeagueLoss(goals, assist, saves):
     print("You lost, womp")
     workout = random.choice(workouts)
-    amount = int(round((25 - (goals * 2) - assist - saves)))
+    amount = int(round((20 - (goals * 2) - assist - saves)))
     print('Do', amount, workout)
 
 def determineRocketLeagueWin(goals, assist, saves):
@@ -58,7 +58,7 @@ def determineOverwatchWin(kills, deaths, healing):
 def determineOverwatchLoss(kills, deaths, healing):
     print("You lost, womp")
     workout = random.choice(workouts)
-    amount = int(round(15 - kills + deaths - (healing * .001)))
+    amount = int(round(20 - kills + deaths - (healing * .001)))
     print('Do', amount, workout)
     print(healing * .001)
 

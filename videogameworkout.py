@@ -2,38 +2,29 @@ import random
 workouts = ["Pushups", "Goblet Squats", "Kettlebell Swings", "Bicycles"]
 
 def rlworkout():
-    gameInfo = {}
-    gameInfo['myScore'] = int(input("How many goals did your team score? "))
-    gameInfo['opponentScore'] = int(input("How many goals did the other team score? "))
-    gameInfo['goals'] = int(input("How many goals did you score? "))
-    gameInfo['assist'] = int(input("How many assists did you make? "))
-    gameInfo['saves'] = int(input("How many goals did you save? "))
+    gameInfo = getInfoRL()
     
     if gameInfo['myScore'] >= 0 and gameInfo['opponentScore'] >= 0:
         if gameInfo['myScore'] > gameInfo['opponentScore']:
             determineRocketLeagueWin(gameInfo['goals'], gameInfo['assist'], gameInfo['saves'])
-            for k, v in gameInfo.items():
-                print(k, ':', v)
+            printStats(gameInfo)
             
         else:
             determineRocketLeagueLoss(gameInfo['goals'], gameInfo['assist'], gameInfo['saves'])
-            for k, v in gameInfo.items():
-                print(k, ':', v)
+            printStats(gameInfo)
     else:
         print("Doesn't make sense dude")
 
 
 def owworkout():
-    gameInfo = {}
-    gameInfo['result'] = input("Did you win or lose? ")
-    gameInfo['kills'] = int(input("How many kills did you get? "))
-    gameInfo['deaths'] = int(input("How many times did you get killed? "))
-    gameInfo['healing'] = int(input("How much healing did you do? "))
+    gameInfo = getInfoOW()
     
     if gameInfo['result'] == "Win" or gameInfo['result'] == "win":
         determineOverwatchWin(gameInfo['kills'], gameInfo['deaths'], gameInfo['healing'])
-    elif gameInfo['result'] == "Lost" or gameInfo['result'] == "lost":
+        printStats(gameInfo)
+    elif gameInfo['result'] == "Lost" or gameInfo['result'] == "lost" or gameInfo['result'] == "lose" or gameInfo['result'] == Lose:
         determineOverwatchLoss(gameInfo['kills'], gameInfo['deaths'], gameInfo['healing'])
+        printStats(gameInfo)
     else:
         print("That's not what I asked bitch!")
 
@@ -62,13 +53,23 @@ def determineOverwatchLoss(kills, deaths, healing):
     print('Do', amount, workout)
     print(healing * .001)
 
-def collectInfo():
+def getInfoRL():
     gameInfo = {}
-    gameInfo['myScore'] = int(input("How many goals did your team score?"))
-    gameInfo['opponentScore'] = int(input("How many goals did the other team score?"))
-    gameInfo['goals'] = int(input("How many goals did you score?"))
-    gameInfo['assist'] = int(input("How many assists did you make?"))
-    gameInfo['saves'] = int(input("How many goals did you save?"))
+    gameInfo['myScore'] = int(input("How many goals did your team score? "))
+    gameInfo['opponentScore'] = int(input("How many goals did the other team score? "))
+    gameInfo['goals'] = int(input("How many goals did you score? "))
+    gameInfo['assist'] = int(input("How many assists did you make? "))
+    gameInfo['saves'] = int(input("How many goals did you save? "))
     return gameInfo
 
-    
+def getInfoOW():
+    gameInfo = {}
+    gameInfo['result'] = input("Did you win or lose? ")
+    gameInfo['kills'] = int(input("How many kills did you get? "))
+    gameInfo['deaths'] = int(input("How many times did you get killed? "))
+    gameInfo['healing'] = int(input("How much healing did you do? "))
+    return gameInfo
+
+def printStats(game):
+    for k, v in game.items():
+        print(k, ' :', v)

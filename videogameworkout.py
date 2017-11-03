@@ -58,7 +58,7 @@ def determineOverwatchWin(kills, deaths, healing):
 def determineOverwatchLoss(kills, deaths, healing):
     print("You lost, womp")
     workout = random.choice(workouts)
-    amount = int(round(25 - kills + deaths - (healing * .001)))
+    amount = int(round(15 - kills + deaths - (healing * .001)))
     print('Do', amount, workout)
     print(healing * .001)
 

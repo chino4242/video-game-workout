@@ -1,5 +1,5 @@
 import random
-workouts = ["Pushups", "Goblet Squats", "Kettlebell Swings", "Bicycles", "Shoulder Press"]
+workouts = ["Pushups", "Goblet Squats", "Kettlebell Swings", "Bicycles", "Shoulder Press", "Ab Roller", "Bicep Curls", "Tricep Extensions", "Bent Rows", "Shoulder Raises"]
 
 def rlworkout():
     gameInfo = getInfoRL()

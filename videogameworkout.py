@@ -73,3 +73,15 @@ def getInfoOW():
 def printStats(game):
     for k, v in game.items():
         print(k, ' :', v)
+
+def main():
+    game_played = str(input("What game did you play? "))
+    game_played.lower()
+    if game_played == "overwatch":
+        owworkout()
+    elif game_played =="rocket league":
+        rlworkout()
+    else:
+        print("That isn't supported")
+
+main()

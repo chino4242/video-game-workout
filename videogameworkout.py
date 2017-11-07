@@ -22,6 +22,7 @@ def owworkout():
     if gameInfo['result'] == "Win" or gameInfo['result'] == "win":
         determineOverwatchWin(gameInfo['kills'], gameInfo['deaths'], gameInfo['healing'])
         printStats(gameInfo)
+        saveData(gameInfo)
     elif gameInfo['result'] == "Lost" or gameInfo['result'] == "lost" or gameInfo['result'] == "lose" or gameInfo['result'] == Lose:
         determineOverwatchLoss(gameInfo['kills'], gameInfo['deaths'], gameInfo['healing'])
         printStats(gameInfo)
@@ -37,14 +38,16 @@ def determineRocketLeagueLoss(goals, assist, saves):
 def determineRocketLeagueWin(goals, assist, saves):
     print("You won!")
     workout = random.choice(workouts)
-    amount = 5
+    amount = random.randint(1, 10)
     print('Do', amount, workout)
 
 def determineOverwatchWin(kills, deaths, healing):
     print("You won!")
     workout = random.choice(workouts)
-    amount = 5
+    amount = random.randint(1, 10)
     print('Do', amount, workout)
+    
+    
 
 def determineOverwatchLoss(kills, deaths, healing):
     print("You lost, womp")
@@ -64,6 +67,7 @@ def getInfoRL():
 
 def getInfoOW():
     gameInfo = {}
+    gameInfo['format'] = '-------'
     gameInfo['result'] = input("Did you win or lose? ")
     gameInfo['kills'] = int(input("How many kills did you get? "))
     gameInfo['deaths'] = int(input("How many times did you get killed? "))
@@ -84,4 +88,10 @@ def main():
     else:
         print("That isn't supported")
 
+def saveData(gameInfo):
+    dict_print = gameInfo
+    workout_log = open('workout_log.txt', 'a')
+    for k, v in dict_print.items():
+        workout_log.write('\n' + str(k) + ' :' + str(v))
+    workout_log.close()
 main()

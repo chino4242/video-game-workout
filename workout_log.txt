@@ -1,0 +1,26 @@
+
+kills :14
+
+healing :100
+
+result :win
+
+deaths :5
+
+result :win
+kills :14
+healing :1
+deaths :2
+result :win
+kills :20
+healing :200
+deaths :4
+healing :100-----------
+result :win-----------
+deaths :8-----------
+kills :8-----------
+result :win
+deaths :4
+format :-------
+healing :200
+kills :6

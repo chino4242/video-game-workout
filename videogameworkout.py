@@ -1,21 +1,20 @@
 import random
 workouts = ["Pushups", "Goblet Squats", "Kettlebell Swings", "Bicycles", "Shoulder Press", "Ab Roller", "Bicep Curls", "Tricep Extensions", "Bent Rows", "Shoulder Raises"]
 
+
 def rlworkout():
     gameInfo = getInfoRL()
     
     if gameInfo['myScore'] >= 0 and gameInfo['opponentScore'] >= 0:
         if gameInfo['myScore'] > gameInfo['opponentScore']:
             determineRocketLeagueWin(gameInfo['goals'], gameInfo['assist'], gameInfo['saves'])
-            printStats(gameInfo)
-            
         else:
             determineRocketLeagueLoss(gameInfo['goals'], gameInfo['assist'], gameInfo['saves'])
-            printStats(gameInfo)
     else:
         print("Doesn't make sense dude")
 
-
+    printStats(gameInfo)
+    saveData(gameInfo)
 def owworkout():
     gameInfo = getInfoOW()
     
@@ -64,6 +63,7 @@ def getInfoRL():
     gameInfo['assist'] = int(input("How many assists did you make? "))
     gameInfo['saves'] = int(input("How many goals did you save? "))
     return gameInfo
+    
 
 def getInfoOW():
     gameInfo = {}
@@ -73,6 +73,7 @@ def getInfoOW():
     gameInfo['deaths'] = int(input("How many times did you get killed? "))
     gameInfo['healing'] = int(input("How much healing did you do? "))
     return gameInfo
+    
 
 def printStats(game):
     for k, v in game.items():

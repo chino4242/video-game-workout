@@ -34,3 +34,8 @@ kills :20
 result :l
 format :-------
 deaths :4
+format :-------
+kills :15
+healing :3000
+deaths :8
+result :w

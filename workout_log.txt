@@ -24,3 +24,13 @@ deaths :4
 format :-------
 healing :200
 kills :6
+healing :300
+kills :20
+result :w
+format :-------
+deaths :4
+healing :200
+kills :20
+result :l
+format :-------
+deaths :4

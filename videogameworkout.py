@@ -19,15 +19,15 @@ def rlworkout():
 def owworkout():
     gameInfo = getInfoOW()
     
-    if gameInfo['result'] == "Win" or gameInfo['result'] == "win":
+    if gameInfo['result'] == "w":
         determineOverwatchWin(gameInfo['kills'], gameInfo['deaths'], gameInfo['healing'])
-        printStats(gameInfo)
-        saveData(gameInfo)
-    elif gameInfo['result'] == "Lost" or gameInfo['result'] == "lost" or gameInfo['result'] == "lose" or gameInfo['result'] == Lose:
+    elif gameInfo['result'] == "l":
         determineOverwatchLoss(gameInfo['kills'], gameInfo['deaths'], gameInfo['healing'])
-        printStats(gameInfo)
     else:
         print("That's not what I asked bitch!")
+
+    printStats(gameInfo)
+    saveData(gameInfo)
 
 def determineRocketLeagueLoss(goals, assist, saves):
     print("You lost, womp")
@@ -68,7 +68,7 @@ def getInfoRL():
 def getInfoOW():
     gameInfo = {}
     gameInfo['format'] = '-------'
-    gameInfo['result'] = input("Did you win or lose? ")
+    gameInfo['result'] = input("Did you win(w) or lose(l)? ")
     gameInfo['kills'] = int(input("How many kills did you get? "))
     gameInfo['deaths'] = int(input("How many times did you get killed? "))
     gameInfo['healing'] = int(input("How much healing did you do? "))

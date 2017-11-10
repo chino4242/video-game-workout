@@ -1,21 +1,31 @@
 import random
 workouts = ["Pushups", "Goblet Squats", "Kettlebell Swings", "Bicycles", "Shoulder Press", "Ab Roller", "Bicep Curls", "Tricep Extensions", "Bent Rows", "Shoulder Raises"]
 
+def main():
+    game_played = str(input("What game did you play? "))
+    game_played.lower()
+    if game_played == "overwatch":
+        owworkout()
+    elif game_played =="rocket league":
+        rlworkout()
+    else:
+        print("That isn't supported")
+        
 def rlworkout():
     gameInfo = getInfoRL()
     
     if gameInfo['myScore'] >= 0 and gameInfo['opponentScore'] >= 0:
         if gameInfo['myScore'] > gameInfo['opponentScore']:
             determineRocketLeagueWin(gameInfo['goals'], gameInfo['assist'], gameInfo['saves'])
-            printStats(gameInfo)
-            
         else:
             determineRocketLeagueLoss(gameInfo['goals'], gameInfo['assist'], gameInfo['saves'])
-            printStats(gameInfo)
     else:
         print("Doesn't make sense dude")
 
+    printStats(gameInfo)
+    savegamedata(gameInfo)
 
+    
 def owworkout():
     gameInfo = getInfoOW()
     
@@ -27,7 +37,7 @@ def owworkout():
         print("That's not what I asked bitch!")
 
     printStats(gameInfo)
-    saveData(gameInfo)
+    savegamedata(gameInfo)
 
 def determineRocketLeagueLoss(goals, assist, saves):
     print("You lost, womp")
@@ -46,15 +56,15 @@ def determineOverwatchWin(kills, deaths, healing):
     workout = random.choice(workouts)
     amount = random.randint(1, 10)
     print('Do', amount, workout)
-    
-    
-
+ 
 def determineOverwatchLoss(kills, deaths, healing):
     print("You lost, womp")
+    workout_tracker = {}
     workout = random.choice(workouts)
     amount = int(round(20 - kills + deaths - (healing * .001)))
     print('Do', amount, workout)
-    print(healing * .001)
+    workout_tracker[workout] = amount
+    
 
 def getInfoRL():
     gameInfo = {}
@@ -64,6 +74,7 @@ def getInfoRL():
     gameInfo['assist'] = int(input("How many assists did you make? "))
     gameInfo['saves'] = int(input("How many goals did you save? "))
     return gameInfo
+    
 
 def getInfoOW():
     gameInfo = {}
@@ -73,25 +84,23 @@ def getInfoOW():
     gameInfo['deaths'] = int(input("How many times did you get killed? "))
     gameInfo['healing'] = int(input("How much healing did you do? "))
     return gameInfo
+    
 
 def printStats(game):
     for k, v in game.items():
         print(k, ' :', v)
 
-def main():
-    game_played = str(input("What game did you play? "))
-    game_played.lower()
-    if game_played == "overwatch":
-        owworkout()
-    elif game_played =="rocket league":
-        rlworkout()
-    else:
-        print("That isn't supported")
-
-def saveData(gameInfo):
+def savegamedata(gameInfo):
     dict_print = gameInfo
-    workout_log = open('workout_log.txt', 'a')
+    game_stats = open('game_stats.txt', 'a')
     for k, v in dict_print.items():
-        workout_log.write('\n' + str(k) + ' :' + str(v))
-    workout_log.close()
+        game_stats.write('\n' + str(k) + ' :' + str(v))
+    game_stats.close()
+
+def saveworkoutdata(workout_tracker):
+    workout_log = open('workout_log.txt', 'a')
+    for k, v in workout_log.items():
+        game_stats.write('\n' + str(k) + ' :' + str(v))
+    workout_log.close()     
+    
 main()

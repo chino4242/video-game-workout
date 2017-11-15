@@ -1,0 +1,11 @@
+determine the game 
+getstatistics (game)
+ if rocket league ask rocket league questions 
+ if overwatch ask overwatch questions
+ return a dictionary of the 
+determine workout - this is where the logic by game will occur
+print workout
+print statistics
+
+save workout
+save statistics

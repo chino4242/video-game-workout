@@ -17,19 +17,22 @@ workoutAccumulated = {
     }"""
 
 def main():
-    game = determineGame() #returns "overwatch" or "rocket league"
-    gameInfo = getStatistics(game) #gets information about the game and saves it in a dictionary
-    if gameInfo['name'] == "overwatch":
-        owWorkout(gameInfo) #pass in stat
-    elif gameInfo['name'] == "rocket league":
-        rlWorkout(gameInfo)
-    else:
-        print("you screwed up somewhere")
-    printStats(gameInfo)
-    printAccumulatedWorkout(workoutInfo)
-    saveGameData(gameInfo)
-    saveWorkoutData(workoutInfo)
-    
+    game = ""
+    while (game.lower() != 'q'):
+        game = determineGame() #returns "overwatch" or "rocket league"
+        gameInfo = getStatistics(game) #gets information about the game and saves it in a dictionary
+        if gameInfo['name'] == "Overwatch":
+            owWorkout(gameInfo) #pass in stat
+        elif gameInfo['name'] == "Rocket League":
+            rlWorkout(gameInfo)
+        else:
+            print("you screwed up somewhere")
+        printStats(gameInfo)
+        printAccumulatedWorkout(workoutInfo)
+        saveGameData(gameInfo)
+        saveWorkoutData(workoutInfo)
+        game = input("Another game? (q to quit)")
+        
 def rlWorkout(gameInfo):
     
     
@@ -135,14 +138,13 @@ def saveWorkoutData(workoutInfo):
     workout_log.close()     
 
 def determineGame():
-    game_played = str(input("What game did you play? Answer 'O' for Overwatch, R for Rocket League, N for NBA"))
-    game_played.lower()
-    if game_played == "o":
-        return "overwatch"
-    elif game_played =="r":
-        return "rocket league"
-    elif game_played == "n":
-        return "NBA"
+    game_played = str(input("What game did you play? Answer 'o' for Overwatch, r for Rocket League, n for NBA"))
+    if game_played.lower() == "o":
+        return "o"
+    elif game_played.lower() == "r":
+        return "r"
+    elif game_played.lower() == "n":
+        return "n"
     else:
         print("That isn't supported")
 

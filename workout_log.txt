@@ -11,3 +11,9 @@ Reps :16
 Exercise :Tricep Extensions
 Reps :3
 Exercise :Ab Roller
+Exercise :Shoulder Raises
+Reps :8
+Exercise :Meditation
+Reps :1
+Exercise :Shoulder Raises
+Reps :17

@@ -1,0 +1,13 @@
+
+Reps :8
+Exercise :Tricep Extensions
+Reps :17
+Exercise :Bicep Curls
+Reps :15
+Exercise :Kettlebell Swings
+Reps :4
+Exercise :Bent Rows
+Reps :16
+Exercise :Tricep Extensions
+Reps :3
+Exercise :Ab Roller

@@ -17,3 +17,47 @@ Exercise :Meditation
 Reps :1
 Exercise :Shoulder Raises
 Reps :17
+Reps :9
+Exercise :Kettlebell Swings
+Reps :14
+Exercise :Shoulder Press
+Exercise :Ab Roller
+Reps :2
+Exercise :Shoulder Raises
+Reps :2
+Exercise :Pushups
+Reps :2
+Exercise :Pushups
+Reps :4
+Exercise :Tricep Extensions
+Reps :3
+Exercise :Shoulder Press
+Reps :5
+Exercise :Ab Roller
+Reps :2
+Exercise :Bicycles
+Reps :5
+Exercise :Bent Rows
+Reps :15
+Exercise :Goblet Squats
+Reps :2
+Exercise :Shoulder Raises
+Reps :2
+Exercise :Kettlebell Swings
+Reps :3
+Exercise :Bent Rows
+Reps :17
+Exercise :Shoulder Press
+Reps :3
+Exercise :Burpees
+Reps :11
+Exercise :Shoulder Press
+Reps :1
+Exercise :Goblet Squats
+Reps :10
+Exercise :Bent Rows
+Reps :9
+Exercise :Bent Rows
+Reps :4
+Exercise :Shoulder Raises
+Reps :15
